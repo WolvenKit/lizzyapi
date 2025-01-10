@@ -55,7 +55,7 @@ router.get("/", async (req, res) => {
           "803628105087713290", // Team-Wkit
           "803647729905172521", // Team-Website
           "790814286519468072", // Team-Wiki
-          "1278051511087399114", // Dev Server Everyone
+          "421412271772794880", // Dev Server Everyone
         ]);
 
     const Guild = await client.guilds.fetch(serverquery.trim());

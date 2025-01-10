@@ -6,6 +6,10 @@ router.post("/", async (req, res) => {
   try {
     const body = req.body;
 
+    if (!body.user || !body.id) {
+      return res.sendStatus(400);
+    }
+
     console.log(body);
 
     const User = await prisma.userV2.findUnique({
