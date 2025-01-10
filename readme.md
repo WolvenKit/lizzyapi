@@ -26,19 +26,18 @@ The api is build up on the schema of versions. A majour version is determined on
 
 The following version currently exist:
 
-| Version   | Status    | Endpoint |
-| --------- | --------- | -------- |
-| Version 1 | Available | /api/v1/ |
-| Version 2 | Available | /api/v2/ |
-| Version 3 | Upcoming  | /api/v3/ |
-
+| Version   | Status     | Endpoint |
+| --------- | ---------- | -------- |
+| Version 1 | Deprecated | /api/v1/ |
+| Version 2 | Available  | /api/v2/ |
 
 ### Permission reference.
+
 The api permission is build up on JWT and a custom implementation of a BitField permission set. The permission reference can be seen at [docs => permissions.md](docs/permission.md).
 
-__To generalize it:__<br/>
+**To generalize it:**<br/>
 An endpoint needs an authorization header with `Bearer TOKEN` as the value.
 A Bearer token, has been encryptet with the `keyName`, `username`, `permission` and `user`.
 
-__Permission flow:__<br/>
+**Permission flow:**<br/>
 The permissin flow is build up two ways. At first a simple check regarding a JWT will be performed. The data in the decrypted token is then compared to the database entry regarding the defined user and the token itself is checked if the defined user owns it. Then using the Bitfield token is compared and check against the db entry of the to be accessing endpoint and method. If the user has permission to use the endpoint, the request will be continued. If the user doesnt have permission a 404 error will be returned.

@@ -1,5 +1,5 @@
 import express from "express";
-import { GithubUserContributions, octokit } from "utils";
+import { octokit } from "utils";
 const router = express.Router();
 
 router.post("/", async (req, res) => {
@@ -48,6 +48,8 @@ router.post("/", async (req, res) => {
         repos: RepoIds,
       }
     );
+
+    console.log(data);
 
     res.send(data);
   } catch (error) {
